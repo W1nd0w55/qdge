@@ -4,8 +4,7 @@ class Game : public Qdge::App
 {
 };
 
-int main()
+Qdge::App* Qdge::App::Create()
 {
-	Game game;
-	game.Run();
+	return new Game();
 }
