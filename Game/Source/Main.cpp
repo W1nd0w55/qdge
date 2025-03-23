@@ -1,7 +1,4 @@
-namespace Qdge
-{
-    void __declspec(dllimport) Print();
-}
+#include <qdge>
 
 int main()
 {
