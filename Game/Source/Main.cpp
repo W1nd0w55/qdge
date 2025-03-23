@@ -1,9 +1,10 @@
-namespace Qdge
-{
-    void __declspec(dllimport) Print();
-}
+#include <qdge>
 
-int main()
+class Game : public Qdge::App
 {
-    Qdge::Print();
+};
+
+Qdge::App* Qdge::App::Create()
+{
+	return new Game();
 }
