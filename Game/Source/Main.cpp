@@ -1,6 +1,11 @@
 #include <qdge>
 
+class Game : public Qdge::App
+{
+};
+
 int main()
 {
-    Qdge::Print();
+	Game game;
+	game.Run();
 }

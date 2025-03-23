@@ -4,5 +4,12 @@
 
 namespace Qdge
 {
-    void QDGE_API Print();
+    class QDGE_API App
+    {
+    public:
+        App();
+        ~App();
+
+        void Run();
+    };
 }

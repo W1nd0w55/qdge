@@ -3,9 +3,19 @@
 
 namespace Qdge
 {
-    void Print()
+    App::App()
     {
-        std::cout << "hi";
+        std::cout << "ffg";
+    }
+
+    App::~App()
+    {
+        std::wcout << L"fgerht";
         std::cin.get();
+    }
+
+    void App::Run()
+    {
+        std::clog << "kkkkkk";
     }
 }
