@@ -7,3 +7,5 @@ target_compile_definitions(qdge PRIVATE QDGE_BUILD)
 if(WIN32)
 	target_compile_definitions(qdge PUBLIC QDGE_WINDOWS)
 endif()
+
+set_target_properties(qdge PROPERTIES FOLDER "Core")

@@ -11,7 +11,7 @@ namespace Qdge
         static App* Create();
 
         App();
-        ~App();
+        virtual ~App();
 
         void Run();
     };
