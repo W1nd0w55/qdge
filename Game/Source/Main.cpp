@@ -1,5 +1,4 @@
 #include <qdge>
-#include <iostream>
 
 class Game : public Qdge::App
 {
