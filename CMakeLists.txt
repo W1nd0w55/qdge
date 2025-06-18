@@ -27,3 +27,7 @@ elseif(LINUX)
 endif()
 
 add_subdirectory("example")
+
+# Libraries
+add_subdirectory("lib/spdlog")
+target_link_libraries(qdge PUBLIC "spdlog")
