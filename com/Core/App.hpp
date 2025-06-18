@@ -4,6 +4,8 @@
 #include "Tools/Defines.hpp"
 #include "Core/OSSpecific.hpp"
 
+#include "Tools/Log/Logger.hpp"
+
 QDGE_NS_COM
 
 namespace Core {
@@ -20,6 +22,8 @@ namespace Core {
 
     private:
         static bool sAppExists;
+        // Engine logger
+        Tools::Logger* mLogger = new Tools::Logger("qdge");
     };
 }
 

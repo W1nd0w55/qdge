@@ -26,6 +26,13 @@ elseif(LINUX)
     target_compile_definitions(qdge PUBLIC QDGE_OS_LINUX)
 endif()
 
+target_compile_definitions(qdge PUBLIC
+    "$<$<CONFIG:Debug>:QDGE_DEBUG>"
+    "$<$<CONFIG:Release>:QDGE_RELEASE>"
+    "$<$<CONFIG:RelWithDebInfo>:QDGE_TESTING>"
+    "$<$<CONFIG:MinSizeRel>:QDGE_MINIMAL>"
+)
+
 add_subdirectory("example")
 
 # Libraries

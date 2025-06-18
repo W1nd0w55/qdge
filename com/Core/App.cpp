@@ -16,14 +16,19 @@ namespace Core {
             throw net::qdge::Exceptions::AppExistsError();
         sAppExists = true;
 
-        // ...
+#if defined QDGE_DEBUG || defined QDGE_TESTING
+        mLogger->SetLevel(Tools::LogLevel::Trace);
+#else
+        mLogger->SetLevel(Tools::LogLevel::Warn);
+#endif
+        mLogger->SetPattern("%n [%l] at %r - %v");
 
-        //OnInit();
+        mLogger->Trace("Starting");
     }
     App::~App() {
-        // ...
+        mLogger->Trace("Closing");
+        delete mLogger;
 
-        //OnCleanup();
         sAppExists = false;
     }
 }
