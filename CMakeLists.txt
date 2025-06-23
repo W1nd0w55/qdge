@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.25)
 project(qdge CXX)
 
-option(qdgeSharedLib "Build qdge as a shadred library" OFF)
+option(qdgeSharedLib "Build qdge as a shadred library" ON)
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/")
 
 file(GLOB_RECURSE src
     "com/*"
@@ -20,6 +24,13 @@ target_include_directories(qdge PUBLIC "com/" "net/" "enduser/" "enduser/include
 
 target_compile_definitions(qdge PRIVATE QDGE_BUILD)
 
+target_compile_definitions(qdge PUBLIC
+    "$<$<CONFIG:Debug>:QDGE_DEV>"
+    "$<$<CONFIG:Release>:QDGE_RELEASE>"
+    "$<$<CONFIG:RelWithDebInfo>:QDGE_TESTING>"
+    "$<$<CONFIG:MinSizeRel>:QDGE_MINIMAL>"
+)
+
 if(WIN32)
     target_compile_definitions(qdge PUBLIC QDGE_OS_WINDOWS)
 elseif(LINUX)
@@ -27,3 +38,7 @@ elseif(LINUX)
 endif()
 
 add_subdirectory("example")
+
+# Libraries
+add_subdirectory("lib/spdlog")
+target_link_libraries(qdge PUBLIC "spdlog")
