@@ -1,18 +1,21 @@
 #include <qdge.hpp>
 #include <iostream>
 
-class Game : public com::qdge::Core::App {
+class Game: public com::qdge::Core::App {
 public:
     void OnInit() {
-        std::cout << "init\n";
     }
 
     void Run() {
-        std::cout << "main\n";
+        TRACE("This is a %s!", "message");
+        DEBUG("This is a %s!", "debug message");
+        INFO("This is some %s!", "info");
+        WARN("This is a %s!", "warning");
+        ERROR("This is an %s!", "error");
+        CRITICAL("This is an %s!", "oopsie!!");
     }
 
     void OnCleanup() {
-        std::cout << "finally over\n";
     }
 };
 

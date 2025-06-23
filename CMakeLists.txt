@@ -20,6 +20,13 @@ target_include_directories(qdge PUBLIC "com/" "net/" "enduser/" "enduser/include
 
 target_compile_definitions(qdge PRIVATE QDGE_BUILD)
 
+target_compile_definitions(qdge PUBLIC
+    "$<$<CONFIG:Debug>:QDGE_DEV>"
+    "$<$<CONFIG:Release>:QDGE_RELEASE>"
+    "$<$<CONFIG:RelWithDebInfo>:QDGE_TESTING>"
+    "$<$<CONFIG:MinSizeRel>:QDGE_MINIMAL>"
+)
+
 if(WIN32)
     target_compile_definitions(qdge PUBLIC QDGE_OS_WINDOWS)
 elseif(LINUX)
@@ -27,3 +34,7 @@ elseif(LINUX)
 endif()
 
 add_subdirectory("example")
+
+# Libraries
+add_subdirectory("lib/spdlog")
+target_link_libraries(qdge PUBLIC "spdlog")

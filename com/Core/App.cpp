@@ -1,4 +1,5 @@
 #include "App.hpp"
+#include "Tools/Log.hpp"
 #include "Exceptions.hpp"
 
 #define PLACEHOLDER_FUNCTION(name) void App::name() { throw net::qdge::Exceptions::FunctionNotDefinedError(); }
@@ -16,14 +17,9 @@ namespace Core {
             throw net::qdge::Exceptions::AppExistsError();
         sAppExists = true;
 
-        // ...
-
-        //OnInit();
+        QDGE_TRACE("Starting %s", "com::qdge::Core::App");
     }
     App::~App() {
-        // ...
-
-        //OnCleanup();
         sAppExists = false;
     }
 }
