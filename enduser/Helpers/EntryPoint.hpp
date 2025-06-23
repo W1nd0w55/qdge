@@ -1,4 +1,3 @@
-#include "Tools/Defines.hpp"
 #include "Core/App.hpp"
 
 int main() {

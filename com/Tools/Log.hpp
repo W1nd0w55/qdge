@@ -16,8 +16,8 @@ namespace Tools {
     public:
         static void Init();
         
-        static QDGE_API Logger sCoreLogger;
-        static QDGE_API Logger sGameLogger;
+        static Logger sCoreLogger;
+        static Logger sGameLogger;
 
         static std::string Format(std::string...);
     };
