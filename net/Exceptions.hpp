@@ -1,7 +1,6 @@
 #pragma once
 
-#include <exception>
-#include "Tools/Defines.hpp"
+#include "pch.hpp"
 
 QDGE_NS_NET
 

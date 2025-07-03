@@ -1,8 +1,6 @@
 #pragma once
 
-#include "Tools/QualityOfCode.hpp"
-#include "Tools/Defines.hpp"
-#include "Core/OSSpecific.hpp"
+#include <pch.hpp>
 
 QDGE_NS_COM
 

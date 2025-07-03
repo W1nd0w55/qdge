@@ -1,11 +1,6 @@
 #pragma once
 
-#include "Tools/QualityOfCode.hpp"
-#include "Tools/Defines.hpp"
-#include "Core/OSSpecific.hpp"
-
-#include <spdlog/spdlog.h>
-#include <spdlog/sinks/stdout_color_sinks.h>
+#include <pch.hpp>
 
 QDGE_NS_COM
 

@@ -37,6 +37,8 @@ elseif(LINUX)
     target_compile_definitions(qdge PUBLIC QDGE_OS_LINUX)
 endif()
 
+target_precompile_headers(qdge PUBLIC "net/pch.hpp")
+
 add_subdirectory("example")
 
 # Libraries
