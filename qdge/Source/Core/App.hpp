@@ -12,8 +12,8 @@ namespace Core {
 
         nonvirtual App();
         nonvirtual ~App();
-        virtual void OnInit();
-        virtual void OnCleanup();
+        virtual void OnInit() = QDGE_NULL;
+        virtual void OnCleanup() = QDGE_NULL;
         virtual void Run() = QDGE_NULL;
 
     private:
