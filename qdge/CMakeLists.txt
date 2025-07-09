@@ -28,3 +28,5 @@ elseif(APPLE)
 elseif(LINUX)
     target_compile_definitions(qdge PUBLIC QDGE_OS_LINUX)
 endif()
+
+set_target_properties(qdge PROPERTIES FOLDER "Core")
