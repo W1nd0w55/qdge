@@ -1,7 +1,7 @@
 #include <qdge.hpp>
 #include <iostream>
 
-class Game: public com::qdge::Core::App {
+class Game: public qdge::Core::App {
 public:
     void OnInit() {
     }
@@ -13,12 +13,14 @@ public:
         WARN("This is a %s!", "warning");
         ERROR("This is an %s!", "error");
         CRITICAL("This is an %s!", "oopsie!!");
+
+        qdge::Tools::Log::sGameLogger->error("cksjvhdfsgbj");
     }
 
     void OnCleanup() {
     }
 };
 
-com::qdge::Core::App* com::qdge::Core::App::Create() {
+qdge::Core::App* qdge::Core::App::Create() {
     return new Game;
 }

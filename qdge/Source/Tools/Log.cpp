@@ -2,7 +2,7 @@
 
 #include <cstdarg>
 
-QDGE_NS_COM
+QDGE_NS
 
 namespace Tools {
     Logger Log::sCoreLogger = spdlog::stdout_color_mt("qdge");

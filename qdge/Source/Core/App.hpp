@@ -1,10 +1,8 @@
 #pragma once
 
-#include "Tools/QualityOfCode.hpp"
-#include "Tools/Defines.hpp"
-#include "Core/OSSpecific.hpp"
+#include "Core/Core.hpp"
 
-QDGE_NS_COM
+QDGE_NS
 
 namespace Core {
     class QDGE_API App {

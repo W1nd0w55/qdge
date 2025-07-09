@@ -1,9 +1,9 @@
 #pragma once
 
 #include <exception>
-#include "Tools/Defines.hpp"
+#include "Core/Core.hpp"
 
-QDGE_NS_NET
+QDGE_NS
 
 namespace Exceptions {
     class AppExistsError : public std::exception {
