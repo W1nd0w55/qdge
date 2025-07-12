@@ -7,12 +7,12 @@ public:
     }
 
     void Run() override {
-        TRACE("This is a %s!", "message");
-        DEBUG("This is a %s!", "debug message");
-        INFO("This is some %s!", "info");
-        WARN("This is a %s!", "warning");
-        ERROR("This is an %s!", "error");
-        CRITICAL("This is an %s!", "oopsie!!");
+        TRACE("This is a {}!", "message");
+        DEBUG("This is a {}!", "debug message");
+        INFO("This is some {}!", "info");
+        WARN("This is a {}!", "warning");
+        ERROR("This is an {}!", "error");
+        CRITICAL("This is an {}!", "oopsie!!");
     }
 
     void OnCleanup() override {
