@@ -17,8 +17,6 @@ namespace Tools {
         
         static Logger sCoreLogger;
         static Logger sGameLogger;
-
-        static std::string Format(std::string...);
     };
 }
 
