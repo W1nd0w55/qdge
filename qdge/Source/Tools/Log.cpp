@@ -5,12 +5,12 @@
 QDGE_NS
 
 namespace Tools {
-    Logger Log::sCoreLogger = spdlog::stdout_color_mt("qdge");
-    Logger Log::sGameLogger = spdlog::stdout_color_mt("Game");
+    Log::Logger Log::sCoreLogger = spdlog::stdout_color_mt("qdge");
+    Log::Logger Log::sGameLogger = spdlog::stdout_color_mt("Game");
 
     void Log::Init() {
         spdlog::set_level(spdlog::level::trace);
-        spdlog::set_pattern("%^%n [%l] %r: %v");
+        spdlog::set_pattern("%^%n [%l] %r: %v%$");
     }
 
     std::string Log::Format(std::string str...) {
@@ -18,7 +18,7 @@ namespace Tools {
         va_start(args, str);
 
         const size_t size = vsnprintf(0, 0, str.c_str(), args) + 1;
-        char* buffer = (char*)alloca(size);
+        char* buffer = (char*)_malloca(size);
         vsnprintf(buffer, size, str.c_str(), args);
         return std::string(buffer);
     }
