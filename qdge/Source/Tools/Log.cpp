@@ -18,7 +18,7 @@ namespace Tools {
         va_start(args, str);
 
         const size_t size = vsnprintf(0, 0, str.c_str(), args) + 1;
-        char* buffer = (char*)_malloca(size);
+        char* buffer = (char*)alloca(size);
         vsnprintf(buffer, size, str.c_str(), args);
         return std::string(buffer);
     }
