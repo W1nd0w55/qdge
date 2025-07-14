@@ -1,2 +1,1 @@
-# qdge
-qdge: A Quick &amp; Dirty Game Engine
+# qdge: A Quick &amp; Dirty Game Engine
