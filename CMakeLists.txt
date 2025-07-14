@@ -27,6 +27,6 @@ add_subdirectory("Dependencies/spdlog")
 target_link_libraries(qdge PUBLIC "spdlog")
 set_target_properties(spdlog PROPERTIES FOLDER "Dependencies")
 
-if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     target_compile_options(spdlog PRIVATE "-fPIC")
 endif()
