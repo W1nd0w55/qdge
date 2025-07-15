@@ -12,9 +12,9 @@ namespace Core {
 
         nonvirtual App();
         nonvirtual ~App();
-        virtual void OnInit() = QDGE_NULL;
-        virtual void OnCleanup() = QDGE_NULL;
-        virtual void Run() = QDGE_NULL;
+        virtual void OnInit() = 0;
+        virtual void OnCleanup() = 0;
+        virtual void Run() = 0;
 
     private:
         static bool sAppExists;

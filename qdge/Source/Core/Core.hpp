@@ -13,8 +13,6 @@
 #define QDGE_NS namespace qdge {
 #define QDGE_NS_END }
 
-#define QDGE_NULL 0
-
 #define nonvirtual
 #define interface class
 #define singleton class
