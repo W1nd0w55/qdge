@@ -12,6 +12,8 @@ namespace Core {
             throw Exceptions::AppExistsError();
         sAppExists = true;
 
+        Tools::Log::Init();
+
         QDGE_TRACE("Starting {}", "qdge::Core::App");
     }
     App::~App() {
