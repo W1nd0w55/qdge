@@ -3,7 +3,7 @@
 #include "Core/App.hpp"
 #include "Exceptions.hpp"
 #include "Tools/Log.hpp"
-#include "Helpers/EntryPoint.hpp"
+#include "Core/EntryPoint.hpp"
 
 #undef QDGE_TRACE
 #undef QDGE_DEBUG

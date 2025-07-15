@@ -1,44 +1,32 @@
 cmake_minimum_required(VERSION 3.25)
 project(qdge CXX)
 
-option(qdgeSharedLib "Build qdge as a shadred library" ON)
+set(CMAKE_CXX_STANDARD 20)
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/")
+option(qdgeSharedLib "Build qdge as a shared library" ON)
+option(includeExample "Build the example game" ON)
 
-file(GLOB_RECURSE src
-    "com/*"
-    "net/*"
-    "enduser/*"
-)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/")
 
-if(qdgeSharedLib)
-    add_library(qdge SHARED "${src}")
-    target_compile_definitions(qdge PUBLIC QDGE_SHARED_LIB)
-else()
-    add_library(qdge STATIC "${src}")
+# Why is this not default?
+include("CMake/GroupSourcesByFolder.cmake")
+
+add_subdirectory("qdge")
+
+if(includeExample)
+    add_subdirectory("Example")
 endif()
 
-target_include_directories(qdge PUBLIC "com/" "net/" "enduser/" "enduser/include/")
-
-target_compile_definitions(qdge PRIVATE QDGE_BUILD)
-
-target_compile_definitions(qdge PUBLIC
-    "$<$<CONFIG:Debug>:QDGE_DEV>"
-    "$<$<CONFIG:Release>:QDGE_RELEASE>"
-    "$<$<CONFIG:RelWithDebInfo>:QDGE_TESTING>"
-    "$<$<CONFIG:MinSizeRel>:QDGE_MINIMAL>"
-)
-
-if(WIN32)
-    target_compile_definitions(qdge PUBLIC QDGE_OS_WINDOWS)
-elseif(LINUX)
-    target_compile_definitions(qdge PUBLIC QDGE_OS_LINUX)
-endif()
-
-add_subdirectory("example")
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Utilities")
 
 # Libraries
-add_subdirectory("lib/spdlog")
+add_subdirectory("Dependencies/spdlog")
 target_link_libraries(qdge PUBLIC "spdlog")
+set_target_properties(spdlog PROPERTIES FOLDER "Dependencies")
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(spdlog PRIVATE "-fPIC")
+endif()

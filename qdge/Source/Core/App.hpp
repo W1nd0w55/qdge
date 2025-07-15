@@ -1,10 +1,8 @@
 #pragma once
 
-#include "Tools/QualityOfCode.hpp"
-#include "Tools/Defines.hpp"
-#include "Core/OSSpecific.hpp"
+#include "Core/Core.hpp"
 
-QDGE_NS_COM
+QDGE_NS
 
 namespace Core {
     class QDGE_API App {
@@ -14,8 +12,8 @@ namespace Core {
 
         nonvirtual App();
         nonvirtual ~App();
-        virtual void OnInit();
-        virtual void OnCleanup();
+        virtual void OnInit() = QDGE_NULL;
+        virtual void OnCleanup() = QDGE_NULL;
         virtual void Run() = QDGE_NULL;
 
     private:
