@@ -16,8 +16,7 @@ namespace Events {
 
 
 	WindowResizeEvent::WindowResizeEvent(uint16_t width, uint16_t height)
-		: mWidth(width), mHeight(height) {
-	}
+		: mWidth(width), mHeight(height) {}
 
 	std::string WindowResizeEvent::ToString() const {
 		return std::format("Window Resized (Width: {0}, Height: {1})", mWidth, mHeight);

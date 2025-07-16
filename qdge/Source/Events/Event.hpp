@@ -11,7 +11,8 @@
 	inline std::string GetName() const override { return #type; }
 
 #define EVENT_CLASS_CATEGORY(category) \
-	inline uint8_t GetCategories() const override { return (uint8_t)category; }
+	inline uint8_t GetCategories() const override { \
+	return (uint8_t)EventCategory::##category; }
 
 QDGE_NS
 
@@ -33,7 +34,7 @@ namespace Events {
 		Mouse		= BITFIELD(4)
 	};
 
-	interface QDGE_API Event{
+	interface QDGE_API Event {
 		friend class EventDispatcher;
 
 	public:
@@ -50,7 +51,7 @@ namespace Events {
 		bool mHandled = false;
 	};
 
-	staticclass EventDispatcher{
+	staticclass QDGE_API EventDispatcher {
 		template<typename T>
 		using EventFunc = std::function<bool(T&)>;
 

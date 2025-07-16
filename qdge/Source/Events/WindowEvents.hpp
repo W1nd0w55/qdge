@@ -3,16 +3,16 @@
 QDGE_NS
 
 namespace Events {
-	class WindowCloseEvent: public Event {
+	class QDGE_API WindowCloseEvent: public Event {
 	public:
 		WindowCloseEvent(); // TODO: take in a window as argument
 
 		EVENT_CLASS_TYPE(WindowClose)
-		EVENT_CLASS_CATEGORY(EventCategory::Window)
+		EVENT_CLASS_CATEGORY(Window)
 	};
 
 
-	class WindowMoveEvent: public Event {
+	class QDGE_API WindowMoveEvent: public Event {
 	public:
 		WindowMoveEvent(uint16_t x, uint16_t y);
 
@@ -22,14 +22,14 @@ namespace Events {
 		std::string ToString() const override;
 
 		EVENT_CLASS_TYPE(WindowMove)
-		EVENT_CLASS_CATEGORY(EventCategory::Window)
+		EVENT_CLASS_CATEGORY(Window)
 
 	private:
 		uint16_t mX, mY;
 	};
 
 
-	class WindowResizeEvent: public Event {
+	class QDGE_API WindowResizeEvent: public Event {
 	public:
 		WindowResizeEvent(uint16_t width, uint16_t height);
 
@@ -39,28 +39,28 @@ namespace Events {
 		std::string ToString() const override;
 
 		EVENT_CLASS_TYPE(WindowResize)
-		EVENT_CLASS_CATEGORY(EventCategory::Window)
+		EVENT_CLASS_CATEGORY(Window)
 
 	private:
 		uint16_t mWidth, mHeight;
 	};
 
 
-	class WindowFocusEvent : public Event {
+	class QDGE_API WindowFocusEvent : public Event {
 	public:
 		WindowFocusEvent(); // TODO: take in a window as argument
 
 		EVENT_CLASS_TYPE(WindowFocus)
-		EVENT_CLASS_CATEGORY(EventCategory::Window)
+		EVENT_CLASS_CATEGORY(Window)
 	};
 
 
-	class WindowUnfocusEvent : public Event {
+	class QDGE_API WindowUnfocusEvent : public Event {
 	public:
 		WindowUnfocusEvent(); // TODO: take in a window as argument
 
 		EVENT_CLASS_TYPE(WindowUnfocus)
-		EVENT_CLASS_CATEGORY(EventCategory::Window)
+		EVENT_CLASS_CATEGORY(Window)
 	};
 }
 
