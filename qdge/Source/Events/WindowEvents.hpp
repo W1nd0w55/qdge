@@ -3,7 +3,7 @@
 QDGE_NS
 
 namespace Events {
-	class QDGE_API WindowCloseEvent: public Event {
+	class QDGE_API WindowCloseEvent : public Event {
 	public:
 		WindowCloseEvent(); // TODO: take in a window as argument
 
@@ -12,12 +12,12 @@ namespace Events {
 	};
 
 
-	class QDGE_API WindowMoveEvent: public Event {
+	class QDGE_API WindowMoveEvent : public Event {
 	public:
 		WindowMoveEvent(uint16_t x, uint16_t y);
 
-		inline const uint16_t GetX() const { return mX; }
-		inline const uint16_t GetY() const { return mY; }
+		inline uint16_t GetX() const { return mX; }
+		inline uint16_t GetY() const { return mY; }
 
 		std::string ToString() const override;
 
@@ -29,7 +29,7 @@ namespace Events {
 	};
 
 
-	class QDGE_API WindowResizeEvent: public Event {
+	class QDGE_API WindowResizeEvent : public Event {
 	public:
 		WindowResizeEvent(uint16_t width, uint16_t height);
 

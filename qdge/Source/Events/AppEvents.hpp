@@ -3,7 +3,7 @@
 QDGE_NS
 
 namespace Events {
-	class QDGE_API AppTickEvent: public Event {
+	class QDGE_API AppTickEvent : public Event {
 	public:
 		AppTickEvent();
 

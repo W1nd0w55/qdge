@@ -12,7 +12,7 @@ namespace Events {
 		: KeyboardEvent(keycode) {}
 
 	std::string KeyPressEvent::ToString() const {
-		return std::format("Key pressed: code {}", mKeyCode);
+		return std::format("Key Pressed: Code {}", mKeyCode);
 	}
 
 
@@ -20,7 +20,7 @@ namespace Events {
 		: KeyboardEvent(keycode), mRepeatCount(repeatCount) {}
 
 	std::string KeyRepeatEvent::ToString() const {
-		return std::format("Key repeated: code {}, {}th time", mKeyCode, mRepeatCount);
+		return std::format("Key Repeated: Code {}, {}th time", mKeyCode, mRepeatCount);
 	}
 
 
@@ -29,7 +29,7 @@ namespace Events {
 	}
 
 	std::string KeyReleaseEvent::ToString() const {
-		return std::format("Key released: code {}", mKeyCode);
+		return std::format("Key Released: Code {}", mKeyCode);
 	}
 }
 

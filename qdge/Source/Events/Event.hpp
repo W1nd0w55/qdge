@@ -21,7 +21,7 @@ namespace Events {
 		AppTick, AppUpdate, AppRender,
 		WindowClose, WindowMove, WindowResize, WindowFocus, WindowUnfocus,
 		KeyPress, KeyRepeat, KeyRelease,
-		MouseMove, MouseClick, MouseRelease, MouseScroll
+		MouseMove, MouseScroll, MouseButtonPress, MouseButtonRelease
 	};
 
 	enum EventCategory : uint8_t {
@@ -55,8 +55,6 @@ namespace Events {
 		using EventCallback = std::function<bool(T&)>;
 
 	public:
-		static void Init();
-
 		template<typename T>
 		static bool Dispatch(Event& event, EventCallback<T> callback) {
 			if (event.GetType() == T::GetStaticType()) {

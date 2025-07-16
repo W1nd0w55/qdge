@@ -10,7 +10,6 @@ namespace Core {
 
     App::App() {
         Tools::Log::Init();
-        Events::EventDispatcher::Init();
 
         if (sAppExists) {
             QDGE_BREAK("App already exists!");

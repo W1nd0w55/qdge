@@ -15,7 +15,7 @@ namespace Events {
 	};
 
 
-	class QDGE_API KeyPressEvent: public KeyboardEvent {
+	class QDGE_API KeyPressEvent : public KeyboardEvent {
 	public:
 		KeyPressEvent(uint16_t keycode);
 
