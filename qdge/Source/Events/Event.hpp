@@ -6,11 +6,12 @@
 #include <string>
 
 #define EVENT_CLASS_TYPE(type) \
-	static EventType GetStaticType() { return EventType::##type; } \
-	EventType GetType() const override { return GetStaticType(); } \
-	std::string GetName() const override { return #type }
+	inline static EventType GetStaticType() { return EventType::##type; } \
+	inline EventType GetType() const override { return GetStaticType(); } \
+	inline std::string GetName() const override { return #type; }
 
-#define EVENT_CLASS_CATEGORY(category) uint8_t GetCategories() const override { return category; }
+#define EVENT_CLASS_CATEGORY(category) \
+	inline uint8_t GetCategories() const override { return (uint8_t)category; }
 
 QDGE_NS
 
@@ -18,18 +19,18 @@ namespace Events {
 	enum class EventType : uint8_t {
 		None = 0,
 		AppTick, AppUpdate, AppRender,
-		WindowClose, WindowMove, WindowResize, WindowFocus, WindowUnfocus /* peak naming */,
+		WindowClose, WindowMove, WindowResize, WindowFocus, WindowUnfocus,
 		KeyPress, KeyRepeat, KeyRelease,
 		MouseMove, MouseClick, MouseRelease, MouseScroll
 	};
 
 	enum class EventCategory : uint8_t {
-		None = 0,
-		App = BITFIELD(0),
-		Window = BITFIELD(1),
-		Input = BITFIELD(2),
-		Keyboard = BITFIELD(3),
-		Mouse = BITFIELD(4)
+		None		= 0,
+		App			= BITFIELD(0),
+		Window		= BITFIELD(1),
+		Input		= BITFIELD(2),
+		Keyboard	= BITFIELD(3),
+		Mouse		= BITFIELD(4)
 	};
 
 	interface QDGE_API Event{
@@ -41,8 +42,8 @@ namespace Events {
 		virtual uint8_t GetCategories() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 
-		inline bool IsInCategory(EventCategory cat /* peak naming again */) {
-			return GetCategories() & (uint8_t)cat;
+		inline bool IsInCategory(EventCategory category) {
+			return GetCategories() & (uint8_t)category;
 		}
 
 	protected:
