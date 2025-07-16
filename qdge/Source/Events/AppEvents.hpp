@@ -8,7 +8,7 @@ namespace Events {
 		AppTickEvent();
 
 		EVENT_CLASS_TYPE(AppTick)
-		EVENT_CLASS_CATEGORY(App)
+		EVENT_CLASS_CATEGORY(CategoryApp)
 	};
 
 	class QDGE_API AppUpdateEvent : public Event {
@@ -16,7 +16,7 @@ namespace Events {
 		AppUpdateEvent();
 
 		EVENT_CLASS_TYPE(AppUpdate)
-		EVENT_CLASS_CATEGORY(App)
+		EVENT_CLASS_CATEGORY(CategoryApp)
 	};
 
 	class QDGE_API AppRenderEvent : public Event {
@@ -24,7 +24,7 @@ namespace Events {
 		AppRenderEvent();
 
 		EVENT_CLASS_TYPE(AppRender)
-		EVENT_CLASS_CATEGORY(App)
+		EVENT_CLASS_CATEGORY(CategoryApp)
 	};
 }
 

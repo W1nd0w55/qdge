@@ -8,7 +8,7 @@ namespace Events {
 		WindowCloseEvent(); // TODO: take in a window as argument
 
 		EVENT_CLASS_TYPE(WindowClose)
-		EVENT_CLASS_CATEGORY(Window)
+		EVENT_CLASS_CATEGORY(CategoryWindow)
 	};
 
 
@@ -22,7 +22,7 @@ namespace Events {
 		std::string ToString() const override;
 
 		EVENT_CLASS_TYPE(WindowMove)
-		EVENT_CLASS_CATEGORY(Window)
+		EVENT_CLASS_CATEGORY(CategoryWindow)
 
 	private:
 		uint16_t mX, mY;
@@ -39,7 +39,7 @@ namespace Events {
 		std::string ToString() const override;
 
 		EVENT_CLASS_TYPE(WindowResize)
-		EVENT_CLASS_CATEGORY(Window)
+		EVENT_CLASS_CATEGORY(CategoryWindow)
 
 	private:
 		uint16_t mWidth, mHeight;
@@ -51,7 +51,7 @@ namespace Events {
 		WindowFocusEvent(); // TODO: take in a window as argument
 
 		EVENT_CLASS_TYPE(WindowFocus)
-		EVENT_CLASS_CATEGORY(Window)
+		EVENT_CLASS_CATEGORY(CategoryWindow)
 	};
 
 
@@ -60,7 +60,7 @@ namespace Events {
 		WindowUnfocusEvent(); // TODO: take in a window as argument
 
 		EVENT_CLASS_TYPE(WindowUnfocus)
-		EVENT_CLASS_CATEGORY(Window)
+		EVENT_CLASS_CATEGORY(CategoryWindow)
 	};
 }
 

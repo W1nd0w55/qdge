@@ -11,8 +11,7 @@
 	inline std::string GetName() const override { return #type; }
 
 #define EVENT_CLASS_CATEGORY(category) \
-	inline uint8_t GetCategories() const override { \
-	return (uint8_t)EventCategory::##category; }
+	inline uint8_t GetCategories() const override { return (uint8_t)(category); }
 
 QDGE_NS
 
@@ -25,13 +24,13 @@ namespace Events {
 		MouseMove, MouseClick, MouseRelease, MouseScroll
 	};
 
-	enum class EventCategory : uint8_t {
-		None		= 0,
-		App			= BITFIELD(0),
-		Window		= BITFIELD(1),
-		Input		= BITFIELD(2),
-		Keyboard	= BITFIELD(3),
-		Mouse		= BITFIELD(4)
+	enum EventCategory : uint8_t {
+		CategoryNone		= 0,
+		CategoryApp			= BITFIELD(0),
+		CategoryWindow		= BITFIELD(1),
+		CategoryInput		= BITFIELD(2),
+		CategoryKeyboard	= BITFIELD(3),
+		CategoryMouse		= BITFIELD(4)
 	};
 
 	interface QDGE_API Event {
