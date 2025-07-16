@@ -32,3 +32,5 @@
 #endif
 
 #define BITFIELD(pos) (1 << pos)
+
+#define REINTERPRET_CAST(T, O) (*(T*)&O)

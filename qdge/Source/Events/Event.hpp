@@ -58,7 +58,7 @@ namespace Events {
 		template<typename T>
 		static bool Dispatch(Event& event, EventCallback<T> callback) {
 			if (event.GetType() == T::GetStaticType()) {
-				event.mHandled = callback(reinterpret_cast<T>(event));
+				event.mHandled = callback(REINTERPRET_CAST(T, event));
 				return true;
 			}
 			return false;

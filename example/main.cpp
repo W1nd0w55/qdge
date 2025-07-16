@@ -7,12 +7,14 @@ public:
     }
 
     void Run() override {
-        TRACE("This is a {}!", "message");
-        DEBUG("This is a {}!", "debug message");
-        INFO("This is some {}!", "info");
-        WARN("This is a {}!", "warning");
-        ERROR("This is an {}!", "error");
-        CRITICAL("This is an {}!", "oopsie!!");
+        using namespace qdge::Events;
+
+        MouseMoveEvent exampleEvent(69, 420);
+        EventDispatcher::Dispatch<MouseMoveEvent>(exampleEvent, [](MouseMoveEvent& e) {
+            INFO(e.ToString());
+            
+            return true;
+        });
     }
 
     void OnCleanup() override {

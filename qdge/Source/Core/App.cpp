@@ -1,7 +1,6 @@
 #include "pch.hpp"
 #include "App.hpp"
 #include "Tools/Log.hpp"
-#include "Events/Event.hpp"
 
 QDGE_NS
 
