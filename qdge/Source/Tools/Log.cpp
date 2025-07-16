@@ -1,6 +1,5 @@
+#include "pch.hpp"
 #include "Log.hpp"
-
-#include <cstdarg>
 
 QDGE_NS
 

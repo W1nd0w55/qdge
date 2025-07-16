@@ -1,4 +1,4 @@
-#include "Core/App.hpp"
+#include "App.hpp"
 
 int main() {
     auto app = qdge::Core::App::Create();

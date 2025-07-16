@@ -20,6 +20,8 @@ target_compile_definitions(qdge PUBLIC
 	"$<$<CONFIG:MinSizeRel>:QDGE_MINIMAL>"
 )
 
+target_precompile_headers(qdge PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/Source/pch.hpp")
+
 if(WIN32)
 	target_compile_definitions(qdge PUBLIC QDGE_OS_WINDOWS)
 elseif(APPLE)

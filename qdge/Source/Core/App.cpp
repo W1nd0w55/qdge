@@ -1,3 +1,4 @@
+#include "pch.hpp"
 #include "App.hpp"
 #include "Tools/Log.hpp"
 
