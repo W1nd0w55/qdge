@@ -53,15 +53,15 @@ namespace Events {
 
 	staticclass QDGE_API EventDispatcher {
 		template<typename T>
-		using EventFunc = std::function<bool(T&)>;
+		using EventCallback = std::function<bool(T&)>;
 
 	public:
 		static void Init();
 
 		template<typename T>
-		static bool Dispatch(Event& event, EventFunc<T> func) {
+		static bool Dispatch(Event& event, EventCallback<T> callback) {
 			if (event.GetType() == T::GetStaticType()) {
-				event.mHandled = func(reinterpret_cast<T>(event));
+				event.mHandled = callback(reinterpret_cast<T>(event));
 				return true;
 			}
 			return false;
