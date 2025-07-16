@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Core/App.hpp"
-#include "Exceptions.hpp"
 #include "Tools/Log.hpp"
 #include "Core/EntryPoint.hpp"
 
@@ -11,3 +10,5 @@
 #undef QDGE_WARN
 #undef QDGE_ERROR
 #undef QDGE_CRITICAL
+
+#undef QDGE_BREAK

@@ -17,3 +17,16 @@
 #define interface class
 #define singleton class
 #define staticclass class
+
+#define QDGE_COMPILER_GCC   0
+#define QDGE_COMPILER_CLANG 1
+#define QDGE_COMPILER_MSVC  2
+#define QDGE_COMPILER_INTEL 3
+
+#if QDGE_COMPILER == QDGE_COMPILER_MSVC
+    #define QDGE_BREAK(...) QDGE_CRITICAL(__VA_ARGS__); __debugbreak();
+    #define BREAK(...)      CRITICAL(__VA_ARGS__); __debugbreak();
+#else
+    #define QDGE_BREAK(...) QDGE_CRITICAL(__VA_ARGS__); throw std::exception();
+    #define BREAK(...)      CRITICAL(__VA_ARGS__); throw std::exception();
+#endif

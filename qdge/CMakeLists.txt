@@ -28,6 +28,16 @@ elseif(LINUX)
 	target_compile_definitions(qdge PUBLIC QDGE_OS_LINUX)
 endif()
 
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+	target_compile_definitions(qdge PUBLIC QDGE_COMPILER=0)
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+	target_compile_definitions(qdge PUBLIC QDGE_COMPILER=1)
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+	target_compile_definitions(qdge PUBLIC QDGE_COMPILER=2)
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Intel")
+	target_compile_definitions(qdge PUBLIC QDGE_COMPILER=3)
+endif()
+
 set_target_properties(qdge PROPERTIES FOLDER "Core")
 
 GroupSourcesByFolder(qdge)

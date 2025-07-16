@@ -1,6 +1,5 @@
 #include "App.hpp"
 #include "Tools/Log.hpp"
-#include "Exceptions.hpp"
 
 QDGE_NS
 
@@ -8,11 +7,12 @@ namespace Core {
     bool App::sAppExists = false;
 
     App::App() {
-        if (sAppExists)
-            throw Exceptions::AppExistsError();
-        sAppExists = true;
+        qdge::Tools::Log::Init();
 
-        Tools::Log::Init();
+        if (!sAppExists) {
+            QDGE_BREAK("App already exists!");
+        }
+        sAppExists = true;
 
         QDGE_TRACE("Starting {}", "qdge::Core::App");
     }
