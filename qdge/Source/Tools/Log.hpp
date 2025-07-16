@@ -8,7 +8,6 @@
 QDGE_NS
 
 namespace Tools {
-
     staticclass QDGE_API Log {
         typedef std::shared_ptr<spdlog::logger> Logger;
 

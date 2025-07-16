@@ -1,6 +1,7 @@
 #include "pch.hpp"
 #include "App.hpp"
 #include "Tools/Log.hpp"
+#include "Events/Event.hpp"
 
 QDGE_NS
 
@@ -8,7 +9,8 @@ namespace Core {
     bool App::sAppExists = false;
 
     App::App() {
-        qdge::Tools::Log::Init();
+        Tools::Log::Init();
+        Events::EventDispatcher::Init();
 
         if (sAppExists) {
             QDGE_BREAK("App already exists!");

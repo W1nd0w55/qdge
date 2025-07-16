@@ -30,3 +30,5 @@
     #define QDGE_BREAK(...) QDGE_CRITICAL(__VA_ARGS__); throw std::exception();
     #define BREAK(...)      CRITICAL(__VA_ARGS__); throw std::exception();
 #endif
+
+#define BITFIELD(pos) (1 << pos)
