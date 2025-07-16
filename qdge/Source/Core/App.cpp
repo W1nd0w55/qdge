@@ -9,7 +9,7 @@ namespace Core {
     App::App() {
         qdge::Tools::Log::Init();
 
-        if (!sAppExists) {
+        if (sAppExists) {
             QDGE_BREAK("App already exists!");
         }
         sAppExists = true;
