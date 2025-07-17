@@ -64,7 +64,7 @@ public:
 	template<typename T>
 	bool Dispatch(EventCallback<T> callback)
 	{
-		if (mEvent.GetType() == T::GetStaticType())
+		if (mEvent.GetType() == T::GetStaticType() && !mEvent.mHandled)
 		{
 			mEvent.mHandled = callback(REINTERPRET_CAST(T, mEvent));
 			return true;

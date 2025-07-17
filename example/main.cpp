@@ -1,13 +1,6 @@
 #include <qdge.hpp>
 #include <iostream>
 
-bool ExampleEventCallback(qdge::MouseMoveEvent& e)
-{
-    DEBUG(e.ToString());
-
-    return true;
-}
-
 class Game: public qdge::App
 {
 public:
@@ -19,7 +12,12 @@ public:
     {
         qdge::MouseMoveEvent event(69, 420);
         qdge::EventDispatcher dispatcher(event);
-        dispatcher.Dispatch<qdge::MouseMoveEvent>(ExampleEventCallback);
+        dispatcher.Dispatch<qdge::MouseMoveEvent>([](qdge::MouseMoveEvent& e)
+        {
+            DEBUG(e.ToString());
+
+            return true;
+        });
     }
 
     void OnCleanup() override
