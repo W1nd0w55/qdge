@@ -7,7 +7,8 @@
 
 QDGE_NS
 
-staticclass QDGE_API Log {
+staticclass QDGE_API Log
+{
     typedef std::shared_ptr<spdlog::logger> Logger;
 
 public:

@@ -2,7 +2,8 @@
 
 QDGE_NS
 
-class QDGE_API MouseMoveEvent : public Event {
+class QDGE_API MouseMoveEvent : public Event
+{
 public:
 	MouseMoveEvent(double x, double y);
 
@@ -19,7 +20,8 @@ private:
 };
 
 
-class QDGE_API MouseScrollEvent : public Event {
+class QDGE_API MouseScrollEvent : public Event
+{
 public:
 	MouseScrollEvent(double xOffset, double yOffset);
 
@@ -36,7 +38,8 @@ private:
 };
 
 
-class QDGE_API MouseButtonEvent : public Event {
+class QDGE_API MouseButtonEvent : public Event
+{
 public:
 	inline uint8_t GetButton() const { return mButton; }
 
@@ -49,7 +52,8 @@ protected:
 };
 
 
-class QDGE_API MouseButtonPressEvent : public MouseButtonEvent {
+class QDGE_API MouseButtonPressEvent : public MouseButtonEvent
+{
 public:
 	MouseButtonPressEvent(uint8_t button);
 
@@ -59,7 +63,8 @@ public:
 };
 
 
-class QDGE_API MouseButtonReleaseEvent : public MouseButtonEvent {
+class QDGE_API MouseButtonReleaseEvent : public MouseButtonEvent
+{
 public:
 	MouseButtonReleaseEvent(uint8_t button);
 

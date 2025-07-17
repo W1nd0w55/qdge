@@ -2,7 +2,8 @@
 
 QDGE_NS
 
-class QDGE_API AppTickEvent : public Event {
+class QDGE_API AppTickEvent : public Event
+{
 public:
 	AppTickEvent();
 
@@ -10,7 +11,8 @@ public:
 	EVENT_CLASS_CATEGORY(EventCategoryApp)
 };
 
-class QDGE_API AppUpdateEvent : public Event {
+class QDGE_API AppUpdateEvent : public Event
+{
 public:
 	AppUpdateEvent();
 
@@ -18,7 +20,8 @@ public:
 	EVENT_CLASS_CATEGORY(EventCategoryApp)
 };
 
-class QDGE_API AppRenderEvent : public Event {
+class QDGE_API AppRenderEvent : public Event
+{
 public:
 	AppRenderEvent();
 

@@ -3,12 +3,18 @@
 
 QDGE_NS
 
-AppTickEvent::AppTickEvent() {}
+AppTickEvent::AppTickEvent()
+{
+}
 
 
-AppUpdateEvent::AppUpdateEvent() {}
+AppUpdateEvent::AppUpdateEvent()
+{
+}
 
 
-AppRenderEvent::AppRenderEvent() {}
+AppRenderEvent::AppRenderEvent()
+{
+}
 
 QDGE_NS_END

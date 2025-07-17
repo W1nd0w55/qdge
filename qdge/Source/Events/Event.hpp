@@ -15,7 +15,8 @@
 
 QDGE_NS
 
-enum class EventType : uint8_t {
+enum class EventType : uint8_t
+{
 	None = 0,
 	AppTick, AppUpdate, AppRender,
 	WindowClose, WindowMove, WindowResize, WindowFocus, WindowUnfocus,
@@ -23,7 +24,8 @@ enum class EventType : uint8_t {
 	MouseMove, MouseScroll, MouseButtonPress, MouseButtonRelease
 };
 
-enum EventCategory : uint8_t {
+enum EventCategory : uint8_t
+{
 	EventCategoryNone		= 0,
 	EventCategoryApp		= BITFIELD(0),
 	EventCategoryWindow		= BITFIELD(1),
@@ -32,7 +34,8 @@ enum EventCategory : uint8_t {
 	EventCategoryMouse		= BITFIELD(4)
 };
 
-interface QDGE_API Event {
+interface QDGE_API Event
+{
 	friend class EventDispatcher;
 
 public:
@@ -41,7 +44,8 @@ public:
 	virtual uint8_t GetCategories() const = 0;
 	virtual std::string ToString() const { return GetName(); }
 
-	inline bool IsInCategory(EventCategory category) {
+	inline bool IsInCategory(EventCategory category)
+	{
 		return GetCategories() & (uint8_t)category;
 	}
 
@@ -49,20 +53,22 @@ protected:
 	bool mHandled = false;
 };
 
-staticclass QDGE_API EventDispatcher {
+staticclass QDGE_API EventDispatcher
+{
 	template<typename T>
 	using EventCallback = std::function<bool(T&)>;
 
 public:
 	template<typename T>
-	static bool Dispatch(Event& event, EventCallback<T> callback) {
-		if (event.GetType() == T::GetStaticType()) {
+	static bool Dispatch(Event& event, EventCallback<T> callback)
+	{
+		if (event.GetType() == T::GetStaticType())
+		{
 			event.mHandled = callback(REINTERPRET_CAST(T, event));
 			return true;
 		}
 		return false;
 	}
 };
-
 
 QDGE_NS_END

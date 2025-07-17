@@ -2,7 +2,8 @@
 
 QDGE_NS
 
-class QDGE_API WindowCloseEvent : public Event {
+class QDGE_API WindowCloseEvent : public Event
+{
 public:
 	WindowCloseEvent(); // TODO: take in a window as argument
 
@@ -11,7 +12,8 @@ public:
 };
 
 
-class QDGE_API WindowMoveEvent : public Event {
+class QDGE_API WindowMoveEvent : public Event
+{
 public:
 	WindowMoveEvent(uint16_t x, uint16_t y);
 
@@ -28,7 +30,8 @@ private:
 };
 
 
-class QDGE_API WindowResizeEvent : public Event {
+class QDGE_API WindowResizeEvent : public Event
+{
 public:
 	WindowResizeEvent(uint16_t width, uint16_t height);
 
@@ -45,7 +48,8 @@ private:
 };
 
 
-class QDGE_API WindowFocusEvent : public Event {
+class QDGE_API WindowFocusEvent : public Event
+{
 public:
 	WindowFocusEvent(); // TODO: take in a window as argument
 
@@ -54,13 +58,13 @@ public:
 };
 
 
-class QDGE_API WindowUnfocusEvent : public Event {
+class QDGE_API WindowUnfocusEvent : public Event
+{
 public:
 	WindowUnfocusEvent(); // TODO: take in a window as argument
 
 	EVENT_CLASS_TYPE(WindowUnfocus)
 	EVENT_CLASS_CATEGORY(EventCategoryWindow)
 };
-
 
 QDGE_NS_END

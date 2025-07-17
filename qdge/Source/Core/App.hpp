@@ -4,7 +4,8 @@
 
 QDGE_NS
 
-class QDGE_API App {
+class QDGE_API App
+{
 public:
     // Game definition
     static App* Create();

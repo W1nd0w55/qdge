@@ -2,7 +2,8 @@
 
 QDGE_NS
 
-class QDGE_API KeyboardEvent: public Event {
+class QDGE_API KeyboardEvent: public Event
+{
 public:
 	inline uint16_t GetKeyCode() const { return mKeyCode; }
 
@@ -14,7 +15,8 @@ protected:
 };
 
 
-class QDGE_API KeyPressEvent : public KeyboardEvent {
+class QDGE_API KeyPressEvent : public KeyboardEvent
+{
 public:
 	KeyPressEvent(uint16_t keycode);
 
@@ -24,7 +26,8 @@ public:
 };
 
 
-class QDGE_API KeyRepeatEvent : public KeyboardEvent {
+class QDGE_API KeyRepeatEvent : public KeyboardEvent
+{
 public:
 	KeyRepeatEvent(uint16_t keycode, uint32_t repeatCount);
 
@@ -37,7 +40,8 @@ private:
 };
 
 
-class QDGE_API KeyReleaseEvent : public KeyboardEvent {
+class QDGE_API KeyReleaseEvent : public KeyboardEvent
+{
 public:
 	KeyReleaseEvent(uint16_t keycode);
 

@@ -6,10 +6,12 @@ QDGE_NS
 
 bool App::sAppExists = false;
 
-App::App() {
+App::App()
+{
     Log::Init();
 
-    if (sAppExists) {
+    if (sAppExists)
+    {
         QDGE_BREAK("App already exists!");
     }
     sAppExists = true;
@@ -17,7 +19,8 @@ App::App() {
     QDGE_TRACE("Starting {}", "qdge::App");
 }
 
-App::~App() {
+App::~App()
+{
     sAppExists = false;
 }
 
