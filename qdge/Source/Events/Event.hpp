@@ -41,9 +41,9 @@ interface QDGE_API Event
 	friend class EventDispatcher;
 
 public:
-	virtual EventType GetType() const = 0;
-	virtual std::string GetName() const = 0;
-	virtual uint8_t GetCategories() const = 0;
+	virtual inline EventType GetType() const = 0;
+	virtual inline uint8_t GetCategories() const = 0;
+	virtual inline std::string GetName() const = 0;
 	virtual std::string ToString() const { return GetName(); }
 
 	inline bool IsInCategory(EventCategory category) const
