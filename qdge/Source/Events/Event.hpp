@@ -44,7 +44,7 @@ public:
 	virtual uint8_t GetCategories() const = 0;
 	virtual std::string ToString() const { return GetName(); }
 
-	inline bool IsInCategory(EventCategory category)
+	inline bool IsInCategory(EventCategory category) const
 	{
 		return GetCategories() & (uint8_t)category;
 	}
@@ -53,12 +53,14 @@ protected:
 	bool mHandled = false;
 };
 
-staticclass QDGE_API EventDispatcher
+class QDGE_API EventDispatcher
 {
 	template<typename T>
 	using EventCallback = std::function<bool(T&)>;
 
 public:
+	EventDispatcher(Event& e);
+
 	template<typename T>
 	static bool Dispatch(Event& event, EventCallback<T> callback)
 	{
@@ -69,6 +71,9 @@ public:
 		}
 		return false;
 	}
+
+private:
+	Event mEvent;
 };
 
 QDGE_NS_END
