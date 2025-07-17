@@ -4,22 +4,21 @@
 
 QDGE_NS
 
-namespace Core {
-    bool App::sAppExists = false;
+bool App::sAppExists = false;
 
-    App::App() {
-        Tools::Log::Init();
+App::App() {
+    Log::Init();
 
-        if (sAppExists) {
-            QDGE_BREAK("App already exists!");
-        }
-        sAppExists = true;
-
-        QDGE_TRACE("Starting {}", "qdge::Core::App");
+    if (sAppExists) {
+        QDGE_BREAK("App already exists!");
     }
-    App::~App() {
-        sAppExists = false;
-    }
+    sAppExists = true;
+
+    QDGE_TRACE("Starting {}", "qdge::App");
+}
+
+App::~App() {
+    sAppExists = false;
 }
 
 QDGE_NS_END

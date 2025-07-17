@@ -1,7 +1,7 @@
 #include "App.hpp"
 
 int main() {
-    auto app = qdge::Core::App::Create();
+    auto app = qdge::App::Create();
     app->OnInit();
     app->Run();
     app->OnCleanup();

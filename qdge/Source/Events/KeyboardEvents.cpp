@@ -3,34 +3,32 @@
 
 QDGE_NS
 
-namespace Events {
-	KeyboardEvent::KeyboardEvent(uint16_t keycode)
-		: mKeyCode(keycode) {}
+KeyboardEvent::KeyboardEvent(uint16_t keycode)
+	: mKeyCode(keycode) {}
 
 
-	KeyPressEvent::KeyPressEvent(uint16_t keycode)
-		: KeyboardEvent(keycode) {}
+KeyPressEvent::KeyPressEvent(uint16_t keycode)
+	: KeyboardEvent(keycode) {}
 
-	std::string KeyPressEvent::ToString() const {
-		return std::format("Key Pressed: Code {}", mKeyCode);
-	}
-
-
-	KeyRepeatEvent::KeyRepeatEvent(uint16_t keycode, uint32_t repeatCount)
-		: KeyboardEvent(keycode), mRepeatCount(repeatCount) {}
-
-	std::string KeyRepeatEvent::ToString() const {
-		return std::format("Key Repeated: Code {}, {}th time", mKeyCode, mRepeatCount);
-	}
+std::string KeyPressEvent::ToString() const {
+	return std::format("Key Pressed: Code {}", mKeyCode);
+}
 
 
-	KeyReleaseEvent::KeyReleaseEvent(uint16_t keycode)
-		: KeyboardEvent(keycode) {
-	}
+KeyRepeatEvent::KeyRepeatEvent(uint16_t keycode, uint32_t repeatCount)
+	: KeyboardEvent(keycode), mRepeatCount(repeatCount) {}
 
-	std::string KeyReleaseEvent::ToString() const {
-		return std::format("Key Released: Code {}", mKeyCode);
-	}
+std::string KeyRepeatEvent::ToString() const {
+	return std::format("Key Repeated: Code {}, {}th time", mKeyCode, mRepeatCount);
+}
+
+
+KeyReleaseEvent::KeyReleaseEvent(uint16_t keycode)
+	: KeyboardEvent(keycode) {
+}
+
+std::string KeyReleaseEvent::ToString() const {
+	return std::format("Key Released: Code {}", mKeyCode);
 }
 
 QDGE_NS_END

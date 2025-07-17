@@ -1,16 +1,14 @@
 #include <qdge.hpp>
 #include <iostream>
 
-class Game: public qdge::Core::App {
+class Game: public qdge::App {
 public:
     void OnInit() override {
     }
 
     void Run() override {
-        using namespace qdge::Events;
-
-        MouseMoveEvent exampleEvent(69, 420);
-        EventDispatcher::Dispatch<MouseMoveEvent>(exampleEvent, [](MouseMoveEvent& e) {
+        qdge::MouseMoveEvent exampleEvent(69, 420);
+        qdge::EventDispatcher::Dispatch<qdge::MouseMoveEvent>(exampleEvent, [](qdge::MouseMoveEvent & e) {
             INFO(e.ToString());
             
             return true;
@@ -21,6 +19,6 @@ public:
     }
 };
 
-qdge::Core::App* qdge::Core::App::Create() {
+qdge::App* qdge::App::Create() {
     return new Game;
 }
