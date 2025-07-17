@@ -4,7 +4,7 @@
 
 QDGE_NS
 
-class QDGE_API App
+interface QDGE_API App
 {
 public:
     // Game definition
@@ -12,6 +12,7 @@ public:
 
     nonvirtual App();
     nonvirtual ~App();
+
     virtual void OnInit() = 0;
     virtual void OnCleanup() = 0;
     virtual void Run() = 0;

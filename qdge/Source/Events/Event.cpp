@@ -3,8 +3,8 @@
 
 QDGE_NS
 
-EventDispatcher::EventDispatcher(Event& e)
-	: mEvent(e)
+EventDispatcher::EventDispatcher(Event& event)
+	: mEvent(event)
 {
 }
 

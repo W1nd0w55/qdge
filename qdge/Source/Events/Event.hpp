@@ -2,6 +2,8 @@
 
 #include "Core/Core.hpp"
 
+#include <spdlog/spdlog.h>
+
 #include <functional>
 #include <string>
 
@@ -45,9 +47,7 @@ public:
 	virtual std::string ToString() const { return GetName(); }
 
 	inline bool IsInCategory(EventCategory category) const
-	{
-		return GetCategories() & (uint8_t)category;
-	}
+	{ return GetCategories() & (uint8_t)category; }
 
 protected:
 	bool mHandled = false;
@@ -59,21 +59,21 @@ class QDGE_API EventDispatcher
 	using EventCallback = std::function<bool(T&)>;
 
 public:
-	EventDispatcher(Event& e);
+	EventDispatcher(Event& event);
 
 	template<typename T>
-	static bool Dispatch(Event& event, EventCallback<T> callback)
+	bool Dispatch(EventCallback<T> callback)
 	{
-		if (event.GetType() == T::GetStaticType())
+		if (mEvent.GetType() == T::GetStaticType())
 		{
-			event.mHandled = callback(REINTERPRET_CAST(T, event));
+			mEvent.mHandled = callback(REINTERPRET_CAST(T, mEvent));
 			return true;
 		}
 		return false;
 	}
 
 private:
-	Event mEvent;
+	Event& mEvent;
 };
 
 QDGE_NS_END
