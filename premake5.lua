@@ -1,3 +1,19 @@
+local vcpkgRoot = os.getenv("VCPKG_ROOT")
+
+local function getVcpkgTriplet()
+	if os.istarget("windows") then
+		if _OPTIONS["architecture"] == "x86" then
+			return "x86-windows"
+		else
+			return "x64-windows"
+		end
+	elseif os.istarget("linux") then
+		return "x64-linux"
+	elseif os.istarget("macosx") then
+		return "x64-osx"
+	end
+end
+
 workspace "qdge"
 	configurations { "Debug", "Testing", "Release" }
 	architecture "x64"
@@ -17,7 +33,14 @@ workspace "qdge"
 			"%{prj.location}/Source/**.hpp",
 			"%{prj.location}/qdgeCore.hpp"
 		}
-		includedirs "%{prj.location}/Source"
+		includedirs {
+			"%{prj.location}/Source",
+			vcpkgRoot .. "/installed/" .. getVcpkgTriplet() .. "/include" 
+		}
+
+		libdirs {
+			vcpkgRoot .. "/installed/" .. getVcpkgTriplet() .. "/lib" 
+		}
 
 		pchsource "%{prj.location}/Source/pch.cpp"
 		pchheader "pch.hpp"
@@ -85,10 +108,10 @@ group ""
 			"qdgeCore"
 		}
 
+		links "qdgeCore"
+
 		pchsource "%{prj.location}/Source/pch.cpp"
 		pchheader "pch.hpp"
-
-		links "qdgeCore"
 
 		filter "system:windows"
 			links "Win32Runtime"
