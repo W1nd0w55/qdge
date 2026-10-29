@@ -14,7 +14,8 @@ workspace "qdge"
 		objdir ("BinaryInt/" .. outputDirFormat)
 		files {
 			"%{prj.location}/Source/**.cpp",
-			"%{prj.location}/Source/**.hpp"
+			"%{prj.location}/Source/**.hpp",
+			"%{prj.location}/qdgeCore.hpp"
 		}
 		includedirs "%{prj.location}/Source"
 
@@ -48,7 +49,7 @@ if os.target() == "windows" then
 		}
 		includedirs {
 			"%{prj.location}/Source",
-			"qdgeCore"
+			"%{wks.location}/qdgeCore"
 		}
 
 		pchsource "%{prj.location}/Source/pch.cpp"
