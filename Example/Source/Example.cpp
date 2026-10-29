@@ -1,5 +1,5 @@
+#include "pch.hpp"
 #include <Source/App.hpp>
-#include <iostream>
 
 class Example : public qdge::App
 {

@@ -17,6 +17,9 @@ workspace "qdge"
 			"%{prj.location}/Source/**.hpp"
 		}
 		includedirs "%{prj.location}/Source"
+
+		pchsource "%{prj.location}/Source/pch.cpp"
+		pchheader "pch.hpp"
 	
 		systemversion "latest"
 
@@ -47,6 +50,9 @@ if os.target() == "windows" then
 			"%{prj.location}/Source",
 			"qdgeCore"
 		}
+
+		pchsource "%{prj.location}/Source/pch.cpp"
+		pchheader "pch.hpp"
 	
 		systemversion "latest"
 		entrypoint "wWinMainCRTStartup"
@@ -78,6 +84,9 @@ group ""
 			"%{prj.location}/Source",
 			"qdgeCore"
 		}
+
+		pchsource "%{prj.location}/Source/pch.cpp"
+		pchheader "pch.hpp"
 
 		links "qdgeCore"
 

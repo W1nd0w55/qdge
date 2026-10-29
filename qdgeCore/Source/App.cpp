@@ -1,6 +1,5 @@
+#include "pch.hpp"
 #include "App.hpp"
-
-#include <iostream>
 
 namespace qdge
 {
