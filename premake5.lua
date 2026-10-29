@@ -55,7 +55,6 @@ if os.target() == "windows" then
 		pchheader "pch.hpp"
 	
 		systemversion "latest"
-		entrypoint "wWinMainCRTStartup"
 
 		filter "configurations:Debug"
 			symbols "On"
@@ -92,7 +91,6 @@ group ""
 
 		filter "system:windows"
 			links "Win32Runtime"
-			linkoptions "/include:wWinMain"
 
 		systemversion "latest"
 
