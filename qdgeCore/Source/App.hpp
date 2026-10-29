@@ -9,4 +9,6 @@ namespace qdge
 		virtual ~App();
 		virtual void Run() = 0;
 	};
+
+	extern App* CreateApp(); // Define in client
 }

@@ -12,6 +12,7 @@ public:
 	~Example()
 	{
 		std::cout << "Bye from example\n";
+		std::cin.get();
 	}
 
 	void Run() override
@@ -20,8 +21,7 @@ public:
 	}
 };
 
-int main()
+qdge::App* qdge::CreateApp()
 {
-	Example app;
-	app.Run();
+	return new Example;
 }
