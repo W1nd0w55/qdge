@@ -1,5 +1,5 @@
 #include "pch.hpp"
-#include <Source/App.hpp>
+#include "App.hpp"
 
 int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ PSTR, _In_ int)
 {
