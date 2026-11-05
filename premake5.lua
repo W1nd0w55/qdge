@@ -13,13 +13,13 @@ workspace "qdge"
 		targetdir ("Binary/" .. outputDirFormat)
 		objdir ("BinaryInt/" .. outputDirFormat)
 		files {
-			"%{prj.location}/Source/**.cpp",
-			"%{prj.location}/Source/**.hpp",
+			"%{prj.location}/qdgeCore/**.cpp",
+			"%{prj.location}/qdgeCore/**.hpp",
 			"%{prj.location}/qdgeCore.hpp"
 		}
-		includedirs "%{prj.location}/Source"
+		includedirs "%{prj.location}/qdgeCore"
 
-		pchsource "%{prj.location}/Source/pch.cpp"
+		pchsource "%{prj.location}/qdgeCore/pch.cpp"
 		pchheader "pch.hpp"
 	
 		systemversion "latest"
@@ -49,15 +49,15 @@ workspace "qdge"
 		targetdir ("Binary/" .. outputDirFormat)
 		objdir ("BinaryInt/" .. outputDirFormat)
 		files {
-			"%{prj.location}/Source/**.cpp",
-			"%{prj.location}/Source/**.hpp"
+			"%{prj.location}/Example/**.cpp",
+			"%{prj.location}/Example/**.hpp"
 		}
 		includedirs {
-			"%{prj.location}/Source",
+			"%{prj.location}/Example",
 			"qdgeCore"
 		}
 
-		pchsource "%{prj.location}/Source/pch.cpp"
+		pchsource "%{prj.location}/Example/pch.cpp"
 		pchheader "pch.hpp"
 
 		links "qdgeCore"
